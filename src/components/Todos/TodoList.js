@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 import styles from "./TodoList.module.css";
-import { IoCloseCircle } from "react-icons/io5";
+import { RiDeleteBin2Line, RiRefreshLine } from "react-icons/ri";
 
 function TodoList({
   todos,
@@ -24,15 +24,21 @@ function TodoList({
     <>
       <div className={styles.todoListContainer}>
         <div className={styles.buttonMark}>
-          <IoCloseCircle
+          <button
             className={styles.mark}
             onClick={() => deleteAllTodo()}
-          ></IoCloseCircle>
+            title={"Удалить все кнопки"}
+          >
+            <RiRefreshLine className={styles.markIcon} />
+          </button>
           <button
             className={styles.deleted}
             onClick={() => deleteMark()}
             disabled={!todo.isCompleted}
-          ></button>
+            title="Удалить завершенные задачи"
+          >
+            <RiDeleteBin2Line className={styles.deletedIcon} />
+          </button>
         </div>
         {todos.map(({ id, text, isCompleted }) => {
           return (
@@ -43,6 +49,7 @@ function TodoList({
               id={id}
               isCompleted={isCompleted}
               isCompletedValid={isCompletedValid}
+              todos={todos}
             />
           );
         })}
