@@ -1,3 +1,32 @@
 .TodoListContainer {
   padding: 10px;
 }
+
+.buttonMark {
+  position: relative;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  top: -5px;
+}
+
+.mark,
+.deleted {
+  display: block;
+  position: relative;
+}
+
+.mark {
+  margin-right: 25px;
+  width: 50px;
+  height: 50px;
+}
+
+.mark:hover {
+  color: rgb(250, 152, 152);
+}
+
+.activeTask {
+  position: relative;
+  top: 45px;
+}
